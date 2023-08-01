@@ -1,13 +1,386 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-display: swap;
+  font-family: 'comfortaa';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/comfortaa-v40-latin-regular.woff2') format('woff2');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-display: swap;
+  font-family: 'convergence';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/convergence-v15-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/anton-v23-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Astloch';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/astloch-v26-latin-regular.woff2') format('woff2');
+}
+
+body{
+  font-family: comfortaa;
+  margin: 0px;
+}
+
+.App{
+  height: 100vh;
+}
+
+.App-title {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* color: white; */
+  /* background-color: black; */
+  height: fit-content;
+  padding: 2px 0;
+}
+.App-title h1{
+  margin: 8px 0;
+}
+
+.layout{
+  @apply flex h-[100vh] gap-2 w-full justify-center
+}
+
+.layout-box{
+  background-color: rgb(42, 41, 41);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  overflow-y: auto;
+}
+
+.layout-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: small;
+  font-family: comfortaa;
+  text-align: center;
+  height: 5%;
+}
+
+.layout-body{
+  display: flex;
+  gap: 0.5rem;
+  height: 95%;
+}
+.navigation{
+  width: 25%;
+  min-width: 250px;
+  padding: 8px;
+  color: white;
+}
+.maincontaint{
+  width: 75%;
+  border-top-left-radius: 10px;
+  background-color: rgb(141, 141, 141);
+  display: flex;
+}
+
+.nav-user{
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.nav-user div{
+  width: 60%;
+}
+
+.nav-user div p{
+  font-size: small;
+  font-weight:100;
+  overflow-x: hidden;
+}
+
+.nav-user div h1{
+  font-weight: bold;
+  font-family: convergence;
+}
+
+.nav-user img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.search{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search input{
+  border-radius: 6px;
+  width: 100%;
+  margin: 8px 0;
+  padding: 2px;
+  background-color: rgb(42, 41, 41);
+  border: solid 1px rgb(85, 85, 85);
+  box-shadow: 0px 1px 0px white;
+}
+
+.search i{
+  position: absolute;
+  right: 6px;
+}
+
+.nav-cathegory{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 0.5rem;
+  margin: 0 0 8px 0;
+}
+
+.nav-cathegory .cath{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  width: 100%;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.nav-cathegory .cath:hover{
+  background-color: rgb(59, 59, 59);
+}
+
+.nav-cathegory .cath i{
+  width: 10%;
+  margin-left: 20px;
+}
+
+.selected{
+  background-color: rgb(59, 59, 59);
+}
+
+.selected:before{
+  content: "";
+  position: absolute;
+  border-radius: 2px;
+  width: 4px;
+  height: 20px;
+  background-color: rgb(73, 103, 255);
+}
+
+.nav-cathegory .cath h2{
+  width: 70%;
+  padding: 0 8px;
+}
+
+.nav-cathegory .cath p{
+  width: 10%;
+  padding: 2px 0 ;
+  font-size: 0.6rem;
+  text-align: center;
+  margin-right: 6px;
+  border-radius: 50%;
+  background-color: rgb(65, 65, 65);
+}
+
+.nav-cathegory .cath:nth-child(1):not(.list) i{
+  color: yellow;
+}
+
+.nav-cathegory .cath:nth-child(2):not(.list) i{
+  color: rgb(253, 109, 109);
+}
+
+.nav-cathegory .cath:nth-child(3):not(.list) i{
+  color: rgb(190, 247, 157);
+}
+
+.nav-cathegory .cath:nth-child(4):not(.list) i{
+  color: rgb(101, 255, 160);
+}
+
+.nav-cathegory .cath:nth-child(5):not(.list) i{
+  color: rgb(101, 142, 255);
+}
+
+.nav-cathegory .list i{
+  color: rgb(141, 240, 255);
+}
+
+hr{
+  width: 90%;
+  border: solid 1px rgb(101, 100, 100);
+  border-radius: 1px;
+  margin: 0 auto 8px;
+}
+
+
+.add{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  padding: 0 15px;
+  gap: 10px;
+}
+
+.main-list{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2.5rem;
+  color: white;
+  height: 100%;
+}
+
+.main-title{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.main-options{
+  display: flex;
+  gap: 1rem;
+}
+
+.main-options i{
+  padding: 4px;
+  height: fit-content;
+  background-color: rgb(59, 59, 59);
+  border-radius: 4px;
+  border: solid 1px rgb(224, 224, 224)
+}
+
+.main-title .headline h1{
+  font-family: convergence;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.main-item-list{
+  height: fit-content;
+}
+
+.main-item{
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  background-color: rgb(59, 59, 59);
+  align-items: center;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.main-item .check{
+  width: 10%;
+  padding: 10px;
+}
+
+.check input{
+  width: 100%;
+  height: 100%;
+}
+
+.item-info{
+  width: 80%;
+}
+
+.star{
+  width: 10%;
+}
+
+.item-subinfo{
+  display: flex;
+  width: 100%;
+  font-size: small;
+  gap: 8px;
+}
+
+.main-add-item{
+  width: 100%;
+}
+
+.main-add-item input{
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 6px;
+  background-color: rgb(59, 59, 59);
+  padding-left: 3.5rem;
+}
+
+.main-add-item i{
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.modifier{
+  background-color: rgb(49, 49, 49);
+  padding: 15px;
+}
+.modifier-body{
+  width: 340px;
+}
+
+.modifier-top{
+  background-color: rgb(83, 83, 83);
+  border-radius: 6px;
+  padding: 20px 5px;
+}
+
+.entry .modifier-title{
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 0;
+  background-color: transparent;
+  padding-left: 2.5rem;
+  border-bottom: solid 1px rgb(97, 97, 97);
+}
+
+.ckbox{
+  position: absolute;
+  left: 0.65rem;
+  bottom: 0.65rem;
+  width: fit-content;
+}
+
+.entry i{
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.5rem;
+  width: fit-content;
+  color: white;
+}
+
+.modifier-top .entry{
+  position: relative;
+  margin: 0 20px;
 }
