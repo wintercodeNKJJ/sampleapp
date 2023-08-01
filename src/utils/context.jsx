@@ -4,16 +4,20 @@ import { createContext } from "react";
 const Context = createContext()
 
 export const MyContext = ({children})=>{
+
+  const [render, setRender] = useState(0)
+
   const [todos, settodos] = useState([
     {
       id: 0,
       state: 0,
-      title: 'new Todo',
-      note: '',
+      title: 'New Todo',
+      note: 'This is a sample note of a to do item',
       steps:[
-        {state: 0,step_title:''}
+        {state: 1,step_title:'this is an example of a step'}
       ],
-      cathegory: '',
+      cathegory: 'My Day',
+      important: 0,
       reminder: '',
       duedate: '',
       rpeat: '',
@@ -81,11 +85,11 @@ export const MyContext = ({children})=>{
    * @returns {} succesfull
    */
   const addTodo_Incathegory = (todo,cathegory)=>{
-    // let list = todos
+    let list = todos
     try {
-      // list.push(todos)
-      // settodos(list);
-      console.log('trying to add todo');
+      list.push(todo)
+      settodos(list);
+      setRender(render+1);
       return "Added Succesfully"
     } catch (error) {
       console.log('Error adding todo');
@@ -97,14 +101,31 @@ export const MyContext = ({children})=>{
    */
   const [showModif, setShowModif] = useState(false)
 
+  const [modifTodo, setModifTodo] = useState()
+
+  /**
+   * Sets atodo for modification
+   * @param {any} todo 
+   */
+  const modifyTodo = (todo)=>{
+    try{
+      setModifTodo(todo)
+    } catch(error) {
+      console.log('Error accured',error)
+    }
+  }
   return(
     <Context.Provider
       value={{
         addTodo_Incathegory,
         setShowModif,
+        modifyTodo,
 
         showModif,
-        cathegories
+        cathegories,
+        todos,
+        render,
+        modifTodo
       }}
     >
       {children}
