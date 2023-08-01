@@ -37,6 +37,8 @@
 body{
   font-family: comfortaa;
   margin: 0px;
+  background-image: url('./images/bgpic.jpg');
+  background-size: cover;
 }
 
 .App{
@@ -51,7 +53,10 @@ body{
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* color: white; */
+  color: white;
+  font-family: convergence;
+  font-weight: 900;
+  font-size: 3rem;
   /* background-color: black; */
   height: fit-content;
   padding: 2px 0;
