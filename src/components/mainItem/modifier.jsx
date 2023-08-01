@@ -6,8 +6,12 @@ import { RxCross1 } from 'react-icons/rx'
 import {TbCalendarTime} from 'react-icons/tb'
 import {SlPaperClip} from 'react-icons/sl'
 import { GoTrash } from 'react-icons/go'
+import { useMyContext } from '../../utils/context'
 
 const Modifier = () => {
+
+  const {setShowModif} = useMyContext()
+
   return (
     <form className='modifier-body'>
       <div className='modifier-top'>
@@ -80,7 +84,7 @@ const Modifier = () => {
       </div>
 
       <div className='top-close-info'>
-        <i><RxCross1 size={18}/></i>
+        <i onClick={()=>setShowModif(false)}><RxCross1 size={18}/></i>
       </div>
     </form>
   )

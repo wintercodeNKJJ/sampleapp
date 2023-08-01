@@ -3,25 +3,28 @@ import {LiaUserPlusSolid} from 'react-icons/lia'
 import {BsFullscreen, BsLightbulb, BsStar, BsThreeDots} from 'react-icons/bs'
 import {BiNote} from 'react-icons/bi'
 import {AiOutlinePlus} from 'react-icons/ai'
+import { useMyContext } from '../../utils/context'
 
-const MainList = () => {
+const MainList = ({cathegory,title_position}) => {
+
+  const {setShowModif} = useMyContext()
   return (
     <div className='main-list'>
       <div>
         <div className='main-title'>
           <div className='headline'>
-            <h1>Title</h1>
+            <h1>{cathegory.selection_title[title_position]}</h1>
             <p>thursday, August 1</p>
           </div>
           <div className='main-options'>
-            <i><LiaUserPlusSolid size={18}/></i>
-            <i><BsFullscreen size={18}/></i>
-            <i><BsLightbulb size={18}/></i>
-            <i><BsThreeDots size={18}/></i>
+            {cathegory.options.includes('Share list') && <i><LiaUserPlusSolid size={18}/></i>}
+            {cathegory.options.includes('keep on top') &&<i><BsFullscreen size={18}/></i>}
+            {cathegory.options.includes('sugestion') &&<i><BsLightbulb size={18}/></i>}
+            {cathegory.options.includes('dots') &&<i><BsThreeDots size={18}/></i>}
           </div>
         </div>
         <div className='main-item-list'>
-          <div className='main-item'>
+          <div className='main-item' onClick={()=>setShowModif(true)}>
             <div className='check'>
               <input type='checkbox'/>
             </div>
