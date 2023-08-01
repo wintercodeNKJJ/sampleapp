@@ -16,7 +16,7 @@ const Layout = () => {
             <Routes>
               <Route path='/Important' element={<MainLister/>}/>
             </Routes>
-            <div className='modifier'>
+            <div className='modifier relative'>
               <Modifier/>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {LiaUserPlusSolid} from 'react-icons/lia'
-import {BsFullscreen, BsStar, BsThreeDots} from 'react-icons/bs'
+import {BsFullscreen, BsLightbulb, BsStar, BsThreeDots} from 'react-icons/bs'
 import {BiNote} from 'react-icons/bi'
 import {AiOutlinePlus} from 'react-icons/ai'
 
@@ -14,9 +14,10 @@ const MainList = () => {
             <p>thursday, August 1</p>
           </div>
           <div className='main-options'>
-            <i><LiaUserPlusSolid size={20}/></i>
-            <i><BsFullscreen size={20}/></i>
-            <i><BsThreeDots size={20}/></i>
+            <i><LiaUserPlusSolid size={18}/></i>
+            <i><BsFullscreen size={18}/></i>
+            <i><BsLightbulb size={18}/></i>
+            <i><BsThreeDots size={18}/></i>
           </div>
         </div>
         <div className='main-item-list'>
@@ -33,7 +34,7 @@ const MainList = () => {
               </div>
             </div>
             <div className='star'>
-              <i><BsStar size={20}/></i>
+              <i><BsStar size={18}/></i>
             </div>
           </div>
         </div>

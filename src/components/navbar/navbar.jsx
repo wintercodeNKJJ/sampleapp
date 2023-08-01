@@ -22,25 +22,25 @@ const Navbar = () => {
       </div>
       <div className='nav-cathegory'>
         <NavLink to="/" className={({isActive})=>(isActive? "cath selected":"cath")}>
-          <i><BsSun size={20}/></i>
+          <i><BsSun size={18}/></i>
           <h2>My day</h2>
           <p>2</p>
         </NavLink>
         <NavLink to="/Important" className={({isActive})=>(isActive? "cath selected":"cath")}>
-          <i><BsStar size={20}/></i>
+          <i><BsStar size={18}/></i>
           <h2>Important</h2>
           <p>1</p>
         </NavLink>
         <NavLink to="/Planed" className={({isActive})=>(isActive? "cath selected":"cath")}>
-          <i><BsCalendar3 size={20}/></i>
+          <i><BsCalendar3 size={18}/></i>
           <h2>Planed</h2>
         </NavLink>
         <NavLink to="/Assigned" className={({isActive})=>(isActive? "cath selected":"cath")}>
-          <i><HiOutlineUser size={20}/></i>
+          <i><HiOutlineUser size={18}/></i>
           <h2>Assigned to me</h2>
         </NavLink>
         <NavLink to="/Task" className={({isActive})=>(isActive? "cath selected":"cath")}>
-          <i><BiHomeAlt2 size={20}/></i>
+          <i><BiHomeAlt2 size={18}/></i>
           <h2>Task</h2>
           <p>5</p>
         </NavLink>
@@ -48,14 +48,14 @@ const Navbar = () => {
       <hr />
       <div className='nav-cathegory'>
         <NavLink to="/Untitled" className={({isActive})=>(isActive? "cath list selected":"cath list")}>
-          <i><FiList size={20}/></i>
+          <i><FiList size={18}/></i>
           <h2>List tile</h2>
           <p>2</p>
         </NavLink>
       </div>
 
       <div className='add'>
-        <i><AiOutlinePlus size={20}/></i>
+        <i><AiOutlinePlus size={18}/></i>
         <h2>New List</h2>
       </div>
     </nav>
